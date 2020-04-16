@@ -1,0 +1,47 @@
+@border-width: 1px;
+@border-color: @c5;
+
+.mixin-border(@type: all, @color: @border-color, @style: solid, @width: @border-width) {
+	border-style: @style;
+	border-color: @color; // border-@{type}-width: 
+
+	& when(@type =all) {
+		border-width: @width @width @width @width;
+	}
+
+	& when not(@type =all) {
+		border-width: 0;
+		border-@{type}-width: @width;
+	}
+}
+
+.mixin-pseudo-border(@type: bottom, @color: @border-color, @style: solid, @width: @border-width) {
+	content: '';
+	position: absolute;
+
+	& when(@type =left),
+	(@type =top) {
+		top: 0;
+		left: 0;
+	}
+
+	& when(@type =right),
+	(@type =bottom) {
+		bottom: 0;
+		right: 0;
+	}
+
+	& when(@type =left),
+	(@type =right) {
+		height: 100%;
+		width: @width;
+	}
+
+	& when(@type =top),
+	(@type =bottom) {
+		height: @width;
+		width: 100%;
+	}
+
+	background-color: @color;
+}

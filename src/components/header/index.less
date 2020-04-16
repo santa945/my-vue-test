@@ -1,0 +1,33 @@
+@header-prefix-cls: ~'c-header';
+@header-height: 64px;
+
+.@{header-prefix-cls}-wrapper {
+    .clearfix();
+    height: @header-height;
+	width: 100%;
+	background-color: #ccc;
+}
+
+.@{header-prefix-cls}-left {
+    float: left;
+    &-logo {
+		width: 26px;
+		height: 26px;
+		vertical-align: top;
+		position: relative;
+		margin-right: 5px;
+		display: inline-block;
+
+		img{
+			width: 100%;
+		}
+
+    }
+    
+    &-title {
+		font-size: 18px;
+		line-height: 28px;
+		font-weight: bold;
+		cursor: pointer;
+	}
+}
