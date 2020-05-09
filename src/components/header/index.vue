@@ -9,6 +9,11 @@
                 {{title}}
             </span>
         </div>
+        <div :class="`${prefixCls}-right`">
+            <span @click="signout">
+                退出登录
+            </span>
+        </div>
     </div>
 </template>
 
@@ -34,7 +39,7 @@ export default {
         }
     },
     methods:{
-        gotoLogin(){
+        signout(){
             location.href = LOGIN_URL
         }
     }
